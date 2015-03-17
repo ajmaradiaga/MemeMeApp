@@ -89,7 +89,6 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
                 self.setEditing(false, animated: false)
             }
             self.navigationItem.leftBarButtonItem?.enabled = false
-            createNewMeme(nil)
         } else {
             self.navigationItem.leftBarButtonItem?.enabled = true
         }

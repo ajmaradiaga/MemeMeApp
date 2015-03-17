@@ -29,18 +29,19 @@ class MemeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Method called by the actionButton (UIBarButtonItem). Let's the user Edit or Delete the current Meme
     @IBAction func actionTapped(sender: AnyObject) {
         memeActions = UIAlertController(title: "Actions", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
+        //Add Actions to UIAlertController
         memeActions.addAction(UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default, handler: memeActionHandler))
-        
         memeActions.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive, handler: memeActionHandler))
-        
         memeActions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: memeActionHandler))
         
         self.presentViewController(memeActions, animated: true, completion: nil)
     }
     
+    //Handles the option selected by the user in the memeAction - UIAlertController
     func memeActionHandler(sender: UIAlertAction!) -> Void{
         if(sender.title == "Delete"){
             mmDelegate.memes.removeAtIndex(memeIndex)
