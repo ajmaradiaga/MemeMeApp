@@ -19,10 +19,6 @@ class SentMemesTableViewController: UITableViewController, UITableViewDataSource
         
         //Set TableView Edit Button
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        
-        if mmDelegate.memes.count == 0 {
-            createNewMeme(nil)
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,6 +82,7 @@ class SentMemesTableViewController: UITableViewController, UITableViewDataSource
             if(self.editing){
                 self.setEditing(false, animated: false)
             }
+            createNewMeme(nil)
             self.navigationItem.leftBarButtonItem?.enabled = false
         } else {
             self.navigationItem.leftBarButtonItem?.enabled = true
